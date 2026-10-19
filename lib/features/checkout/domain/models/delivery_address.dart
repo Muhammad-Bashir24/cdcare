@@ -36,4 +36,33 @@ class DeliveryAddress {
       town: town ?? this.town,
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DeliveryAddress &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          recipientName == other.recipientName &&
+          phoneNumber == other.phoneNumber &&
+          state == other.state &&
+          lga == other.lga &&
+          town == other.town &&
+          streetAddress == other.streetAddress;
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    recipientName,
+    phoneNumber,
+    state,
+    lga,
+    town,
+    streetAddress,
+  );
+
+  @override
+  String toString() {
+    return 'DeliveryAddress(id: $id, recipientName: $recipientName, phoneNumber: $phoneNumber, state: $state, lga: $lga, town: $town, streetAddress: $streetAddress)';
+  }
 }
